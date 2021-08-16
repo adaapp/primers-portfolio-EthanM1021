@@ -1,5 +1,5 @@
 void fahrenheitCentigradeConversion(void) {
-	std::cout << " - fahrenheitCentigradeConversion: not yet implemented\n\n";
+	std::cout << "Complete this first!\n\n";
 }
 
 
