@@ -33,9 +33,39 @@ void fahrenheitCentigradeConversion(void) {
 }
 
 
+float addCost(float t, int q, float c) {
+  return t + (q * c);
+}
 
+float calculateTax(float total, float tax) {
+  return total * tax;
+}
 
 void selfServiceCheckout(void) {
-	std::cout << " - selfServiceCheckout: not yet implemented\n\n";
+	float tax = 0.055;
+  float subtotal = 0.0;
+  int quantity = 1;
+  float cost = 0.0;
+  int items = 0;
+
+  while(quantity > 0) {
+    items++;
+    std::cout << "Please enter a quantity for item " << items << " (or 0 to finish):";
+    std::cin >> quantity;
+
+    if (quantity > 0) {
+      std::cout << "Please enter item " << items << "'s cost: ";
+      std::cin >> cost;
+
+      subtotal = addCost(subtotal, quantity, cost);
+    }
+  }
+
+  std::cout << "Thank you.\n";
+
+  std::cout << "\nSubtotal: £" << subtotal;
+  std::cout << "\nShopping tax: £" << calculateTax(subtotal, tax);
+
+  std::cout << "\n\nTotal: £" << subtotal + calculateTax(subtotal, tax);
 }
 
