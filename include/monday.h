@@ -42,7 +42,7 @@ float calculateTax(float total, float tax) {
 }
 
 void selfServiceCheckout(void) {
-	float tax = 0.055;
+  float tax = 0.055;
   float subtotal = 0.0;
   int quantity = 1;
   float cost = 0.0;
