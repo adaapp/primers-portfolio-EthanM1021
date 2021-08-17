@@ -13,8 +13,8 @@ void fahrenheitCentigradeConversion(void) {
   float temperature;
   char choice;
 
-	std::cout << "Please enter the starting temperature: ";
-  
+  std::cout << "Please enter the starting temperature: ";
+
   std::cin >> temperature;
 
   std::cout << "\nPress 'C' to convert from Fahrenheit to Centigrade...";
