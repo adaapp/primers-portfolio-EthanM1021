@@ -1,6 +1,14 @@
 #include <iostream>
 using namespace std;
 
+float FtoC(float temp) {
+  return ((temp - 32) * 5 / 9);
+}
+
+float CtoF(float temp) {
+  return ((temp * 9 / 5) + 32);
+}
+
 void fahrenheitCentigradeConversion(void) {
   float temperature;
   char choice;
@@ -16,13 +24,15 @@ void fahrenheitCentigradeConversion(void) {
   std::cout << "You picked: " << choice << endl;
 
   if (choice == 'F' || choice == 'f') {
-    std::cout << temperature << " in Centigrade is " << (temperature * 9 / 5) + 32 << endl;
+    std::cout << temperature << " in Centigrade is " << CtoF(temperature) << endl;
   } else if (choice == 'C' || choice == 'c') {
-    std::cout << temperature << " in Fahrenheit is " << (temperature - 32) * 5 / 9 << endl;
+    std::cout << temperature << " in Fahrenheit is " << FtoC(temperature) << endl;
   } else {
     std::cout << "You need to enter either 'C' or 'F'"; 
   }
 }
+
+
 
 
 void selfServiceCheckout(void) {
