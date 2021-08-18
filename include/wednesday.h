@@ -1,5 +1,19 @@
+#include <fstream>
+
 void phoneDirectory(void) {
-	std::cout << " - phoneDirectory: not yet implemented\n\n";
+  ifstream file;
+  string name;
+  string number;
+  
+  file.open("./include/phoneDirectory.csv");
+
+  while(file >> name >> number) {
+    getline(file, name);
+    getline(file, number);
+
+    std::cout << name;
+    std::cout << number;
+  }
 }
 
 

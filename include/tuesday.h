@@ -34,26 +34,67 @@ int isSpecial(string password) {
   return special;
 }
 
+int calculatePasswordStrength(string password) {
+  if (isNumber(password) > 2 && !isLetter(password) && !isSpecial(password)) {
+    return 1;
+  }
+  if (password.length() >= 4 && isNumber(password) <= 3 && isLetter(password) < 5) {
+    return 2;
+  }
+  if (password.length() >= 8 && isLetter(password) > 4 && isNumber(password) > 2 && !isSpecial(password)) {
+    return 3;
+  }
+  if (password.length() >= 8 && isLetter(password) > 4 && isNumber(password) > 2 && isSpecial(password) >= 1) {
+    return 4;
+  }
+  return 0;
+}
+
 void passwordComplexityChecker(void) {
   string password;
+  string complexity;
 	
   std::cout << "Enter password: ";
   std::cin >> password;
 
-  if (isNumber(password) > 2 && !isLetter(password) && !isSpecial(password)) {
-    std::cout << 1;
+  if (calculatePasswordStrength(password) == 1) {
+    complexity = "weak";
+  } else if (calculatePasswordStrength(password) == 2) {
+    complexity = "moderate";
+  } else if (calculatePasswordStrength(password) == 3) {
+    complexity = "strong";
+  } else if (calculatePasswordStrength(password) == 4) {
+    complexity = "very strong";
   }
-  if (password.length() >= 4 && isNumber(password) <= 3 && isLetter(password) < 5) {
-    std::cout << 2;
-  }
-  if (password.length() >= 8 && isLetter(password) > 4 && isNumber(password) > 2 && !isSpecial(password)) {
-    std::cout << 3;
-  }
-  if (password.length() >= 8 && isLetter(password) > 4 && isNumber(password) > 2 && isSpecial(password) >= 1) {
-    std::cout << 4;
-  }
+
+  std::cout << "The password " << password << " is " << complexity;
 }
 
 void employeeListRemoval(void) {
-	std::cout << " - employeeListRemoval: not yet implemented\n\n";
+	// string employeeToDelete;
+
+  // string employees[5] = { "John Smith", "Jaelynn Stuart", "Kaley Barajas", "Walter Collier", "Cale Myers" };
+
+  // int employeesLength = sizeof(employees)/sizeof(*employees);
+
+  // std::cout << "Here are the "<< employeesLength << " employees: \n";
+
+  // for (int i = 0; i < employeesLength; i++) {
+  //   std::cout << employees[i] << endl;
+  // }
+
+  // std::cout << "\nEnter an employee name to remove: ";
+  // std::getline(cin, employeeToDelete);
+
+  // // for (int i = 0; i < employeesLength; i++) {
+  // //   std::cout << employees[i] << endl;
+  // // }
+
+  // for (int i = 0; i < employeesLength; i++) {
+  //   if (employees[i] == employeeToDelete) {
+  //     employees[i] = employees[i + 1];
+  //   }
+  // }
+  // std::cout << employees[i] << endl;
+  
 }
