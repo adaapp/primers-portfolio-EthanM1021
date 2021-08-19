@@ -1,3 +1,5 @@
+#include <list>
+
 int isNumber(string password) {
   int number = 0;
 
@@ -71,30 +73,30 @@ void passwordComplexityChecker(void) {
 }
 
 void employeeListRemoval(void) {
-	// string employeeToDelete;
+	string employeeToDelete;
+  bool goAhead = true;
 
-  // string employees[5] = { "John Smith", "Jaelynn Stuart", "Kaley Barajas", "Walter Collier", "Cale Myers" };
+  std::list<string> employees { "John Smith", "Jaelynn Stuart", "Kaley Barajas", "Walter Collier", "Cale Myers" };
 
-  // int employeesLength = sizeof(employees)/sizeof(*employees);
-
-  // std::cout << "Here are the "<< employeesLength << " employees: \n";
-
-  // for (int i = 0; i < employeesLength; i++) {
-  //   std::cout << employees[i] << endl;
-  // }
-
-  // std::cout << "\nEnter an employee name to remove: ";
-  // std::getline(cin, employeeToDelete);
-
-  // // for (int i = 0; i < employeesLength; i++) {
-  // //   std::cout << employees[i] << endl;
-  // // }
-
-  // for (int i = 0; i < employeesLength; i++) {
-  //   if (employees[i] == employeeToDelete) {
-  //     employees[i] = employees[i + 1];
-  //   }
-  // }
-  // std::cout << employees[i] << endl;
+  std::cout << "\nThere are 5 employees:" << endl;
   
+  for (string i : employees) std::cout << i << endl;
+
+  std::cout << "\nEnter an employee name to remove: ";
+  getline(cin, employeeToDelete);
+
+  for (string i : employees) {
+    employees.remove(employeeToDelete);
+  }
+
+  if (employees.size() == 5) {
+    std::cout << "No employee found!";
+    goAhead = false;
+  }
+
+  if (goAhead == true) {
+    std::cout << "\nThere are 4 employees:" << endl;
+
+  for (string i : employees) std::cout << i << endl;
+  }
 }
