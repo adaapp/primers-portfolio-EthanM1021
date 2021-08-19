@@ -1,5 +1,15 @@
-void sleepTimer(void) {
-	std::cout << " - sleepTimer: not yet implemented\n\n";
+#include <iostream>
+#include<thread>
+
+void sleep(int seconds = 10) {
+  int milliseconds = seconds * 1000; 
+  
+  std::this_thread::sleep_for(std::chrono::milliseconds(milliseconds)); 
+}
+
+int sleepTimer(int seconds = 10) {
+  sleep(seconds);
+  return 0;
 }
 
 
