@@ -1,13 +1,5 @@
-/*
-Display status
-Display Menu
-Get option from user
-Act on option
-*/
-
 class Car {
     private:
-
       const std::string DEFAULT_COLOUR = "Matte Black";
       const std::string DEFAULT_MAKE = "Batmobile";
 
@@ -127,7 +119,30 @@ void carClass(void) {
   }
 }
 
+class AreaOf {
+    private:
+      const float PI = 3.14159;
+    
+    public: 
+      float size(float r) {
+        return PI * (r * r);
+      }
+      float size(float l, float w) {
+        return l * w;
+      }
+      float size(float a, float b, float h) {
+        return (a + b) * 2 * h;
+      }
+
+      ~AreaOf() {};
+};
 
 void areaOf(void) {
-		std::cout << " - areaOf: not yet implemented\n\n";
+    AreaOf square;
+    AreaOf rectangle;
+    AreaOf trapezium;
+
+		std::cout << "Area of Cirle (radius = 10): " << square.size(10) << endl;
+		std::cout << "Area of Rectangle (length = 10, width = 20): " << rectangle.size(10, 20) << endl;
+		std::cout << "Area of Trapezium (base = 5, base = 10, height = 20): " << trapezium.size(5, 10, 20) << endl;
 }
