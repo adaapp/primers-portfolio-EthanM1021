@@ -1,13 +1,16 @@
-class Car {
-    private:
-      const std::string DEFAULT_COLOUR = "Matte Black";
+class Car { // The class
+    private: // Access specifier
+    // default private variables 
+      const std::string DEFAULT_COLOUR = "Matte Black"; 
       const std::string DEFAULT_MAKE = "Batmobile";
 
+    // initialise variables needed
       string carColour;
       string carMake;
       bool isEngineRunning;
       bool isCarLocked;
 
+    // function to initialise car
       void init_car(std::string colour, std::string make, bool running,bool isLocked) {
         carColour = colour;
         carMake = make;
@@ -19,13 +22,16 @@ class Car {
 
       int option;
 
+      // constructor - when the objects lifetime begins
      Car() {
         init_car(DEFAULT_COLOUR, DEFAULT_MAKE, false, true);
       }
 
+      // destructor - when the objects lifetime ends
       ~Car() {
       };
 
+      // getter and setter functions
       void setColour(string colour) { carColour = colour; };
       string getColour(void) { return carColour; };
 
@@ -38,6 +44,7 @@ class Car {
       void unlockCar(void);
 
       void status(void) { 
+        // change status of engine and locked as they are bools. IT would return 1 or 0 instead of running or off/locked or unlocked
         std::string engine_status;
         std::string locked_status;
         
@@ -45,10 +52,12 @@ class Car {
 
         isCarLocked ? locked_status = "Locked" : locked_status = "Unlocked";
 
+        // Outputs to the user the status of the car
         std::cout << "\nCar status: Colour: " << carColour << ", Make: " << carMake << ", engine: " << engine_status << ", " << locked_status << endl;
       };
   };
 
+// if a user was to try and lock the car whilst it was locked already, it would give the user a helpful message
   void Car::lockCar(void) {
     if (!isCarLocked) {
       std::cout << "\nLocking the car\n";
@@ -58,6 +67,7 @@ class Car {
     }
   }
 
+  // Same as line 61
   void Car::unlockCar(void) {
     if (isCarLocked) {
       std::cout << "\nUnlocking the car\n";
@@ -67,6 +77,7 @@ class Car {
     }
   }
 
+  // Same as line 61
   void Car::engineOn(void) {
     if (!isEngineRunning) {
       std::cout << "\nTurning the engine on\n";
@@ -76,6 +87,7 @@ class Car {
     }
   }
 
+  // Same as line 61
   void Car::engineOff(void) {
   if(isEngineRunning) {
     std::cout << "\nTurning the engine off\n";
@@ -85,6 +97,7 @@ class Car {
   }
   }
 
+// menu to allow user to see and enter the option they want
 int carMenu(void) {
   int option;
 
@@ -95,14 +108,16 @@ int carMenu(void) {
   std::cout << "Please select an option (or 0 to finish) ";
   std::cin >> option;
 
+  // returns the number in which the user picked
   return option;
   }
 
 void carClass(void) {
-  Car myCar;
+  Car myCar; // Instansiates class
 
   myCar.status();
 
+  // switch case to detect which option the user has chosen
   switch(carMenu()) {
     case 1:
       myCar.engineOn();
