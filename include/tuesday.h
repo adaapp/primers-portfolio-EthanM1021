@@ -88,27 +88,30 @@ void employeeListRemoval(void) {
 	string employeeToDelete;
   bool goAhead = true;
 
+  // vector to store all employees
   std::list<string> employees { "John Smith", "Jaelynn Stuart", "Kaley Barajas", "Walter Collier", "Cale Myers" };
 
-  std::cout << "\nThere are 5 employees:" << endl;
+  // gets length of above vector
+  std::cout << "\nThere are "<< employees.size() << " employees:" << endl;
   
-  for (string i : employees) std::cout << i << endl;
+  // loop through vector and get each employee
+  for (string eachEmployee : employees) std::cout << eachEmployee << endl;
 
   std::cout << "\nEnter an employee name to remove: ";
-  getline(cin, employeeToDelete);
+  getline(cin, employeeToDelete); // Gets whole line of user input including whitespace
 
-  for (string i : employees) {
-    employees.remove(employeeToDelete);
-  }
+  employees.remove(employeeToDelete); // removes employee from vector
 
+  // if no employee was removed
   if (employees.size() == 5) {
-    std::cout << "No employee found!";
-    goAhead = false;
+    std::cout << "No employee found!"; //output to guide user
+    goAhead = false; // flips boolean on line 89
   }
 
+  // if employee was found
   if (goAhead == true) {
-    std::cout << "\nThere are 4 employees:" << endl;
+    std::cout << "\nThere are "<< employees.size() << " employees:" << endl;
 
-  for (string i : employees) std::cout << i << endl;
+  for (string i : employees) std::cout << i << endl; // prints employees vector without the removed one
   }
 }
