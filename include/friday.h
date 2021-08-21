@@ -134,24 +134,29 @@ void carClass(void) {
   }
 }
 
+// creating class
 class AreaOf {
     private:
-      const float PI = 3.14159;
+      const float PI = 3.14159; // prinvate const - PI is always the same number
     
     public: 
-      float size(float r) {
+      float size(float r) { // function for circle
         return PI * (r * r);
       }
-      float size(float l, float w) {
+      float size(float l, float w) { // function for rectangle
         return l * w;
       }
-      float size(float a, float b, float h) {
+      float size(float a, float b, float h) { // function for trapezium
         return (a + b) * 2 * h;
       }
 
+      // All functions are able to be called the same name as there are a differnt number of parameters. If two functions were called size and both had two parameters, an error would appear
+
+      // destructor
       ~AreaOf() {};
 };
 
+// function to work out each area for each shape
 void areaOf(void) {
     AreaOf square;
     AreaOf rectangle;
