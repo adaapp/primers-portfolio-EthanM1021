@@ -41,30 +41,31 @@ void fahrenheitCentigradeConversion(void) {
 float addCost(float t, int q, float c) {
   float value = t + (q * c);
   return roundf(value * 100) / 100;
-}
+} // takes in subtotal, quantity and cost and rounds to two decimal places
 
 float calculateTax(float total, float tax) {
-  float value = total * tax;
+  float percentageTax = tax / 100;
+  float value = total * percentageTax;
   return roundf(value * 100) / 100;
 }
 
 void selfServiceCheckout(void) {
-  float tax = 0.055;
+  float tax = 5.5;
   float subtotal = 0.0;
-  int quantity = 1;
+  int quantity = 1; // set to one so while statement executes on line 58
   float cost = 0.0;
   int items = 0;
 
   while(quantity > 0) {
     items++;
-    std::cout << "Please enter a quantity for item " << items << " (or 0 to finish):";
-    std::cin >> quantity;
+    std::cout << "Please enter a quantity for item " << items << " (or 0 to finish): "; // asks for user input
+    std::cin >> quantity; // quantity gets reassigned
 
     if (quantity > 0) {
       std::cout << "Please enter item " << items << "'s cost: ";
       std::cin >> cost;
 
-      subtotal = addCost(subtotal, quantity, cost);
+      subtotal = addCost(subtotal, quantity, cost); // calls addCost
     }
   }
 
