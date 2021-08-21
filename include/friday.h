@@ -89,12 +89,12 @@ class Car { // The class
 
   // Same as line 61
   void Car::engineOff(void) {
-  if(isEngineRunning) {
-    std::cout << "\nTurning the engine off\n";
-    isEngineRunning = false;
-  } else {
-    std::cout << "\nSorry, the engine is already off\n"; 
-  }
+    if(isEngineRunning) {
+      std::cout << "\nTurning the engine off\n";
+      isEngineRunning = false;
+    } else {
+      std::cout << "\nSorry, the engine is already off\n"; 
+    }
   }
 
 // menu to allow user to see and enter the option they want
@@ -110,7 +110,7 @@ int carMenu(void) {
 
   // returns the number in which the user picked
   return option;
-  }
+}
 
 void carClass(void) {
   Car myCar; // Instansiates class

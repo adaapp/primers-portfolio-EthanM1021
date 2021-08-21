@@ -9,7 +9,7 @@ float CtoF(float temp) {
 
 // Convert Fahrenheit to Centigrade
 float FtoC(float temp) {
-  return(temp * 9 / 5) + 32; // conversion
+  return (temp * 9 / 5) + 32; // conversion
 }
 
 void fahrenheitCentigradeConversion(void) {
@@ -50,7 +50,7 @@ float calculateTax(float total, float tax) {
 }
 
 void selfServiceCheckout(void) {
-  float tax = 5.5;
+  const float tax = 5.5;
   float subtotal = 0.0;
   int quantity = 1; // set to one so while statement executes on line 58
   float cost = 0.0;
