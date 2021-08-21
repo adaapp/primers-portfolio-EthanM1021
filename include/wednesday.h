@@ -70,6 +70,7 @@ void phoneDirectory(void) {
   formatContact(amountOfContacts, userInput, data);
 }
 
+// function that returns the amount of spacing after the last name to make console look correct
 int makes13(int number) {
   int counter = 0;
 
@@ -80,31 +81,29 @@ int makes13(int number) {
 }
 
 void formatPeople(std::vector<std::vector<std::string>> data, int i) {
-  auto initial = data[i][0][0];
-  auto surname = data[i][1];
-  auto salary = data[i][2];
+  char initial = data[i][0][0]; // gets first initial of each employee
+  std::string surname = data[i][1]; // gets surname of employee
+  std::string salary = data[i][2]; // gets salary of employee
   std::string spacing;
-  int longestSurname = 0;
 
-  int numberOfSpaces = makes13(surname.length());
+  int numberOfSpaces = makes13(surname.length()); // calls makes13 with the int of the length of the surname
   spacing = std::string(numberOfSpaces, ' ');
+  // i.e produces a string of spaces with the integer of whatever numberOfSpaces is
 
+  // formats the data in the console
   std::cout << initial << ".          ";
   std::cout << surname << spacing << "£";
   std::cout << salary << endl;
 }
 
 void dataFileParser() {
-  std::string initialLines;
-  std::string spaces;
-  std::string surname;
-
   std::vector<std::vector<std::string>> data = readFromCSV("./include/employees.csv");
   int employeeSize = data.size();
 
   printf("Initial     Last          Salary\n");
   printf("--------    ----------    -------\n");
 
+  // loops through each employee and passes their index in the vector to the formatPeople function
   for (int i = 0; i < employeeSize; i++) {
     formatPeople(data, i);
   }
