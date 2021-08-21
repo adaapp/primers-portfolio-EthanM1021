@@ -1,8 +1,8 @@
 class Car { // The class
     private: // Access specifier
     // default private variables 
-      const std::string DEFAULT_COLOUR = "Matte Black"; 
-      const std::string DEFAULT_MAKE = "Batmobile";
+      const string DEFAULT_COLOUR = "Matte Black"; 
+      const string DEFAULT_MAKE = "Batmobile";
 
     // initialise variables needed
       string carColour;
@@ -11,7 +11,7 @@ class Car { // The class
       bool isCarLocked;
 
     // function to initialise car
-      void init_car(std::string colour, std::string make, bool running,bool isLocked) {
+      void init_car(string colour, string make, bool running,bool isLocked) {
         carColour = colour;
         carMake = make;
         isEngineRunning = running;
@@ -45,8 +45,8 @@ class Car { // The class
 
       void status(void) { 
         // change status of engine and locked as they are bools. IT would return 1 or 0 instead of running or off/locked or unlocked
-        std::string engine_status;
-        std::string locked_status;
+        string engine_status;
+        string locked_status;
         
         isEngineRunning ? engine_status = "Running" : engine_status = "Off";
 

@@ -6,17 +6,17 @@
 #include <string>
 
 // function to read a csv file line by line
-std::vector<std::vector<std::string>> readFromCSV(std::string fileName) {
+std::vector<std::vector<string>> readFromCSV(string fileName) {
   std::ifstream file(fileName);
 
-  std::string line;
-  std::vector<std::vector<std::string>> records;
+  string line;
+  std::vector<std::vector<string>> records;
 
   // while there is things to read, carry on
   while(getline(file, line)) {
     std::stringstream stream(line);
-    std::string field;
-    std::vector<std::string> rowList;
+    string field;
+    std::vector<string> rowList;
 
   // while there is still a comma, push that field into the vector above
   // third parameter is a delimiter
@@ -33,7 +33,7 @@ std::vector<std::vector<std::string>> readFromCSV(std::string fileName) {
 }
 
 // function to format the output to the console
-void formatContact(int n, string userInput, std::vector<std::vector<std::string>> data) {
+void formatContact(int n, string userInput, std::vector<std::vector<string>> data) {
   // flag to deal with if contacts were found
   bool record = false;
 
@@ -60,7 +60,7 @@ void phoneDirectory(void) {
 	getline(std::cin, userInput); // stores userInput
 
   // calls readFromCSV and stores is a nested vector of strings
-  std::vector<std::vector<std::string>> data = readFromCSV("./include/phoneDirectory.csv");
+  std::vector<std::vector<string>> data = readFromCSV("./include/phoneDirectory.csv");
   int amountOfContacts = data.size();
 
   // data.size() will get the amount of contacts in this case
@@ -80,14 +80,14 @@ int makes13(int number) {
   return counter;
 }
 
-void formatPeople(std::vector<std::vector<std::string>> data, int i) {
+void formatPeople(std::vector<std::vector<string>> data, int i) {
   char initial = data[i][0][0]; // gets first initial of each employee
-  std::string surname = data[i][1]; // gets surname of employee
-  std::string salary = data[i][2]; // gets salary of employee
-  std::string spacing;
+  string surname = data[i][1]; // gets surname of employee
+  string salary = data[i][2]; // gets salary of employee
+  string spacing;
 
   int numberOfSpaces = makes13(surname.length()); // calls makes13 with the int of the length of the surname
-  spacing = std::string(numberOfSpaces, ' ');
+  spacing = string(numberOfSpaces, ' ');
   // i.e produces a string of spaces with the integer of whatever numberOfSpaces is
 
   // formats the data in the console
@@ -97,7 +97,7 @@ void formatPeople(std::vector<std::vector<std::string>> data, int i) {
 }
 
 void dataFileParser() {
-  std::vector<std::vector<std::string>> data = readFromCSV("./include/employees.csv");
+  std::vector<std::vector<string>> data = readFromCSV("./include/employees.csv");
   int employeeSize = data.size();
 
   printf("Initial     Last          Salary\n");
