@@ -1,17 +1,19 @@
 #include <list>
 
-int isNumber(string password) {
-  int number = 0;
+// function to see if characters are a number
+int isNumber(string password) { 
+  int number = 0; // initialise number to 0 to coutn how many numbers are in the password
 
   for (int i = 0; i < password.length(); i++) {
     if (isdigit(password[i])) {
-      number += 1;
+      number += 1; // if char is number, add 1 to number 
     }
   }
 
-  return number;
+  return number; // returns amount of numbers in password
 }
 
+// function to see if characters are a letter
 int isLetter(string password) {
   int letter = 0;
 
@@ -24,6 +26,7 @@ int isLetter(string password) {
   return letter;
 }
 
+// function to see if characters are neither letter/number
 int isSpecial(string password) {
   int special = 0;
 
@@ -36,11 +39,18 @@ int isSpecial(string password) {
   return special;
 }
 
+
+// function to calculate the strength
 int calculatePasswordStrength(string password) {
-  if (isNumber(password) > 2 && !isLetter(password) && !isSpecial(password)) {
+
+  bool onlyNumbers = isNumber(password) && !isLetter(password) && !isSpecial(password);
+  bool onlyLetters = isLetter(password) && !isNumber(password) && !isSpecial(password);
+  bool onlySpecial = isSpecial(password) && !isNumber(password) && !isLetter(password);
+
+  if (onlyNumbers || onlyLetters || onlySpecial) {
     return 1;
   }
-  if (password.length() >= 4 && isNumber(password) <= 3 && isLetter(password) < 5) {
+  if (password.length() >= 2 && isNumber(password) <= 3 && isLetter(password) < 5) {
     return 2;
   }
   if (password.length() >= 8 && isLetter(password) > 4 && isNumber(password) > 2 && !isSpecial(password)) {
@@ -57,8 +67,9 @@ void passwordComplexityChecker(void) {
   string complexity;
 	
   std::cout << "Enter password: ";
-  std::cin >> password;
+  std::cin >> password; // user input of the password
 
+  //calls password strength function to return an integer
   if (calculatePasswordStrength(password) == 1) {
     complexity = "weak";
   } else if (calculatePasswordStrength(password) == 2) {
@@ -70,6 +81,7 @@ void passwordComplexityChecker(void) {
   }
 
   std::cout << "The password " << password << " is " << complexity;
+  // tells the user the complexity of their password
 }
 
 void employeeListRemoval(void) {
