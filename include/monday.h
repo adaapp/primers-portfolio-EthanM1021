@@ -2,36 +2,38 @@
 #include <math.h>
 using namespace std;
 
+// Converts Centigrade to Fahrenheit
 float CtoF(float temp) {
-  return (temp - 32) * 5 / 9;
+  return (temp - 32) * 5 / 9; // conversion
 }
 
+// Convert Fahrenheit to Centigrade
 float FtoC(float temp) {
-  return(temp * 9 / 5) + 32;
+  return(temp * 9 / 5) + 32; // conversion
 }
 
 void fahrenheitCentigradeConversion(void) {
-  float temperature = 0.0;
-  char choice;
+  float temperature = 0.0; // set temp to 0
+  char choice; // userInput
 
   std::cout << "Please enter the starting temperature: ";
-  std::cin >> temperature;
+  std::cin >> temperature; // updates float on line 16
 
   std::cout << "Enter 'C' to convert from Fahrenheit to Centigrade...";
   std::cout << "\nEnter 'F' to convert from Centigrade to Fahrenheit...\n";
   std::cout << "Enter 'K' to convert from Fahrenheit to Kelvin...\n";
 
-  std::cin >> choice;
+  std::cin >> choice; // choice gets updated to whatever this is
   std::cout << "Your choice: " << choice << endl;
 
   if (choice == 'F' || choice == 'f') {
-    std::cout << temperature << " in Centigrade is " << CtoF(temperature) << endl;
+    std::cout << temperature << " in Centigrade is " << FtoC(temperature) << endl; // calls appropriate function
   } else if (choice == 'K' || choice == 'k') {
-    std::cout << temperature << " in Kelvin is " << CtoF(temperature) + 273.15 << endl;
+    std::cout << temperature << " in Kelvin is " << CtoF(temperature) + 273.15 << endl; // calls appropriate function
   } else if (choice == 'C' || choice == 'c') {
-    std::cout << temperature << " in Fahrenheit is " << FtoC(temperature) << endl;
+    std::cout << temperature << " in Fahrenheit is " << CtoF(temperature) << endl; // calls appropriate function
   } else {
-    std::cout << "You need to enter either 'C', 'F' or 'K"; 
+    std::cout << "You need to enter either 'C', 'F' or 'K"; // If user doesn't enter either - error catcher 
   }
 }
 
