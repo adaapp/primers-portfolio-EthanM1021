@@ -52,7 +52,7 @@ float calculateTax(float total, float tax) {
 void selfServiceCheckout(void) {
   const float tax = 5.5;
   float subtotal = 0.0;
-  int quantity = 1; // set to one so while statement executes on line 58
+  int quantity = 1; // set to one so while statement executes on line 59
   float cost = 0.0;
   int items = 0;
 
